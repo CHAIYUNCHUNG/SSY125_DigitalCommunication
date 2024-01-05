@@ -1,4 +1,4 @@
-function bits_de = softdecode(y,Map,G)
+function bits_de = softdecode_bpsk(y,Map,G)
     Nb = length(y);
     Ns = 2^((length(G)-1));
     bits_de = zeros(1,Nb);
@@ -16,7 +16,7 @@ function bits_de = softdecode(y,Map,G)
                 % get next state and possible bit  
                 nextstate = bi2de(flip(next(state+1+Ns*bit,:)));    % Decimal number
                 output_bit = output(state+1+Ns*bit,:);
-                branch(state+1,nextstate+1) = distance(Map(bi2de(flip(output_bit))+1),y(t));  
+                branch(state+1,nextstate+1) = bpskdis(Map(bi2de(flip(output_bit))+1),y(t));  
             end
         end
         for state = 0:Ns-1

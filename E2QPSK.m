@@ -6,8 +6,8 @@ for SNR = range
     % u = [1 0 1 1 0 0];
     Nb = 1000;
     u = randi([0 1],[1 Nb]);
-    g1 = [1 0 1]';
-    g2 = [1 1 1]'; 
+    g1 = [1 0 1 1 1]';
+    g2 = [1 0 1 1 0]'; 
     G = [g1 g2];
     [K,Nc] = size(G);
     Ns = 2^(K-1);
@@ -63,7 +63,7 @@ ylabel('BER')
 hold on
 ylim([1e-4 1])
 grid on
-
+title('$\varepsilon_2$ and $\chi_{QPSK}$','Interpreter','latex')
     
     
 
