@@ -4,7 +4,7 @@ BERarray = zeros(1,10);
 range = [-1:8];
 for SNR = range
     % u = [1 0 1 1 0 0];
-    Nb = 1000;
+    Nb = 100000;
     u = randi([0 1],[1 Nb]);
     g1 = [1 0 0 1 1]';
     g2 = [1 1 0 1 1]'; 
@@ -61,7 +61,6 @@ title('BER v.s. E_b/N_0 plot')
 xlabel('E_b/N_0 [dB]')
 ylabel('BER')
 hold on
-ylim([1e-4 1])
 grid on
 title('$\varepsilon_3$ and $\chi_{QPSK}$','Interpreter','latex')
     
